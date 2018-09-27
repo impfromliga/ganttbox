@@ -153,7 +153,10 @@ function Chart(div){
 		};
 		Object.defineProperties(node,{
 			'left':{get:function(){return Math.floor((node.from-_from)/T_DAY)*zoomX},
-					set:function(x){node.from = Math.min(node.to-T_DAY,+_from +Math.floor(x/zoomX)*T_DAY)}},//TODO: min(node.to-T_DAY)
+					set:function(x){
+						node.from = +_from +Math.floor(x/zoomX)*T_DAY;
+						node.to = Math.max(node.from+T_DAY,node.to)
+					}},//TODO: min(node.to-T_DAY)
 			'right'  :{get:function(){return Math.floor((node.to-_from)/T_DAY)*zoomX},
 					set:function(x){node.to = Math.max(node.from+T_DAY,+_from +Math.round(x/zoomX)*T_DAY)}},
 			'y'   :{get:function(){return node.row*zoomY},
