@@ -88,7 +88,7 @@ body {
 	border-radius: 300px;
 }
 .GanttBoxPop{
-/*	display: none;*/
+	display: none;
 	position: fixed;
     top: 0;
 }
