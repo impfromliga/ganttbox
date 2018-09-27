@@ -35,7 +35,7 @@ lsn.up=function(e,s){
 lsn.mov = function(ev,s){
 	chart.hlp(0,0,0);
 	console.log('mov:',s.dbgKey)
-	if(s.dT < 600 && Math.hypot(s.dX, s.dY) < 50)
+	if(s.dT < 500 && Math.hypot(s.dX, s.dY) < 250)
 		chart.canvas.style.left = s.dX +'px';
 	else{
 		chart.moveBy(s.dX, s.dY);
