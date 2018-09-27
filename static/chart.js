@@ -298,7 +298,7 @@ function Chart(div){
 	}
 	chart.set = function(node){
 		var res = arguments[1]; //arguments of popup witch pass async by pop callback //null if cancel presed
-		var req = {lblTitle:'<h2>Парамметры задания</h2>', state:Pop.DTE};
+		var req = {lblTitle:'<h2>Параметры задания</h2>', state:Pop.DTE};
 		if(!_root){
 			hlpArea.style.display = 'none';
 			pop({lblTitle:'Перед началом работы выберете или создайте новый проект'})
