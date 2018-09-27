@@ -152,15 +152,21 @@ function Chart(div){
 			}
 		};
 		Object.defineProperties(node,{
-			'left':{get:function(){return Math.floor((node.from-_from)/T_DAY)*zoomX},
-					set:function(x){
-						node.from = +_from +Math.floor(x/zoomX)*T_DAY;
-						node.to = Math.max(node.from+T_DAY,node.to)
-					}},//TODO: min(node.to-T_DAY)
-			'right'  :{get:function(){return Math.floor((node.to-_from)/T_DAY)*zoomX},
-					set:function(x){node.to = Math.max(node.from+T_DAY,+_from +Math.round(x/zoomX)*T_DAY)}},
-			'y'   :{get:function(){return node.row*zoomY},
-					set:function(y){node.row = Math.floor(y/zoomY)}}
+			'left':{
+				get:function(){return Math.floor((node.from-_from)/T_DAY)*zoomX},
+				set:function(x){
+					node.from = +_from +Math.floor(x/zoomX)*T_DAY;
+					node.to = Math.max(node.from+T_DAY, node.to);
+				}
+			},//TODO: min(node.to-T_DAY)
+			'right':{
+				get:function(){return Math.floor((node.to-_from)/T_DAY)*zoomX},
+				set:function(x){node.to = Math.max(node.from+T_DAY,+_from +Math.round(x/zoomX)*T_DAY)}
+			},
+			'y':{
+				get:function(){return node.row*zoomY},
+				set:function(y){node.row = Math.floor(y/zoomY)}
+			}
 		})
 		if(typeof x == 'object') node.set(x);
 		else{node.left = x;node.right = x;node.y = y;}
@@ -226,21 +232,22 @@ function Chart(div){
 			return req;
 		}
 		node.collise = function(flag){
-			var left = node.left, right = node.right, collise = [], ignoreY = [], self = false;
-			for(var n = 0; n < _nodes.length && _nodes[n].right <= left; n++);
+			_nodes.sort(function(a,b){return a.to-b.to});
+			var from = node.from, to = node.to, collise = [], ignoreY = [], self = false;
+			for(var n = 0; n < _nodes.length && _nodes[n].to <= from; n++);
 			if(flag=='firstOne'){
 				for(;n < _nodes.length;n++)
-					if(_nodes[n].left < right && _nodes[n].y==node.y) return _nodes[n];
+					if(_nodes[n].from < to && _nodes[n].y==node.y) return _nodes[n];
 				return null;
 			}else
 				for(;n < _nodes.length;n++)
-					if(_nodes[n].left < right)
+					if(_nodes[n].from < to)
 						if(_nodes[n]==node) self = true;
 						else if(_nodes[n].y==node.y) collise.push(_nodes[n]);
 						else ignoreY.push(_nodes[n]);
 			//return node;
 			if(flag=='ignoreY')
-				collise.ignoreY = ignoreY.sort(function(a,b){return a.y-b.y});
+				collise.ignoreY = ignoreY.sort(function(a,b){return a.row-b.row});
 			collise.self = self;
 			return collise;
 		}
@@ -320,6 +327,7 @@ function Chart(div){
 		var req = node.getReq(req,res);
 		
 		if(!(req.state&~(Pop.DTE|Pop.DEL))){//похоже несоответствия устранены, закрываем диалог
+			console.info('USEVE DONE')
 			node.unsave(); //если задача сохраняла свое предыдущее положение удалем его (стирается из чарта)
 			chartSet(node); //добавив задачу (отредактированную или новую) в чарт
 			return hlpArea.style.display = 'none';
@@ -327,14 +335,14 @@ function Chart(div){
 		pop(req, chart.set.bind(this,node));
 	}
 	function chartSet(node){
-		console.log(node)
 		if(!~_nodes.indexOf(node)){ //если нода еще не добавлена
 			_nodes.push(node);
 		}
 		node.parent = _root.id;
 		xdb.put(node);
 		//iddb.set(node);
-		_nodes.sort(function(a,b){return a.right-b.right});
+		console.log("SORTED!")
+		_nodes.sort(function(a,b){return a.to-b.to});
 		node.draw();
 	}
 	
@@ -359,7 +367,7 @@ function Chart(div){
 		lstRoot.selectedIndex = lstRootSysLen + _roots.indexOf(_root);
 		chart.from = _root.from;
 		chart.to = _root.to - T_DAY;
-		_nodes.sort(function(a,b){return a.right-b.right});
+		_nodes.sort(function(a,b){return a.to-b.to});
 		chart.draw();
 	}
 	
