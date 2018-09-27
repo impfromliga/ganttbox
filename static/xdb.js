@@ -37,7 +37,13 @@ var Xdb = function(host, onAddRoot){
 		put:function(node,ondone){
 			indexedDB.open('db',ver).onsuccess=  function(ev){
 				var transaction = this.result.transaction(['nodes'], "readwrite");
-				var val = {parent:node.parent,from:node.from,to:node.to,row:node.row,caption:node.caption,style:node.style};
+				var val = {parent:node.parent,
+						   from:node.from,
+						   to:node.to,
+						   row:node.row,
+						   caption:node.caption,
+						   description:node.description,
+						   style:node.style};
 				if(node.id) val.id = node.id;
 				transaction.objectStore('nodes').put(val).onsuccess = function(ev){
 					console.log('db.transaction.put(',node,').onsuccess(',ev.target.result,')');
