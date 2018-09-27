@@ -1,0 +1,37 @@
+[class^="xs-"],[class*=" xs-"]{
+	min-height: 1px;
+	position: relative;
+	float:left;
+/*	outline:1px dashed rgba(99,99,99,.2);*/
+}
+[class$="-rev"],[class*="-rev "]{float:right}
+[class^="xs-1"],[class*=" xs-1"]{width:8.33%}[class$="-gap-1"],[class*="-gap-1"]{margin-right:8.33%}
+[class$="-r-1"],[class*="-r-1"]{left:8.33%}[class$="-l-1"],[class*="-l-1"]{left:-8.33%}
+
+[class$="-r-1em"],[class*="-r-1em"]{left:1em}[class$="-l-1em"],[class*="-l-1em"]{left:-1em}
+
+[class^="xs-2"],[class*=" xs-2"]{width:16.66%}[class$="-gap-2"],[class*="-gap-2"]{margin-right:16.66%}
+[class$="-r-2"],[class*="-r-2"]{left:16.66%}[class$="-l-2"],[class*="-l-2"]{left:-16.66%}
+[class^="xs-3"],[class*=" xs-3"]{width:25%}[class$="-gap-3"],[class*="-gap-3"]{margin-right:25%}
+[class$="-r-3"],[class*="-r-3"]{left:25%}[class$="-l-3"],[class*="-l-3"]{left:-25%}
+[class^="xs-4"],[class*=" xs-4"]{width:33.33%}[class$="-gap-4"],[class*="-gap-4"]{margin-right:33.33%}
+[class$="-r-4"],[class*="-r-4"]{left:33.33%}[class$="-l-4"],[class*="-l-4"]{left:-33.33%}
+[class^="xs-5"],[class*=" xs-5"]{width:41.66%}[class$="-gap-5"],[class*="-gap-5"]{margin-right:41.66%}
+[class$="-r-5"],[class*="-r-5"]{left:41.66%}[class$="-l-5"],[class*="-l-5"]{left:-41.66%}
+[class^="xs-6"],[class*=" xs-6"]{width:50%}[class$="-gap-6"],[class*="-gap-6"]{margin-right:50%}
+[class$="-r-6"],[class*="-r-6"]{left:50%}[class$="-l-6"],[class*="-l-6"]{left:-50%}
+[class^="xs-7"],[class*=" xs-7"]{width:58.33%}[class$="-gap-7"],[class*="-gap-7"]{margin-right:58.33%}
+[class$="-r-7"],[class*="-r-7"]{left:58.33%}[class$="-l-7"],[class*="-l-7"]{left:-58.33%}
+[class^="xs-8"],[class*=" xs-8"]{width:66.66%}[class$="-gap-8"],[class*="-gap-8"]{margin-right:66.66%}
+[class$="-r-8"],[class*="-r-8"]{left:66.66%}[class$="-l-8"],[class*="-l-8"]{left:-66.66%}
+[class^="xs-9"],[class*=" xs-9"]{width:75%}[class$="-gap-9"],[class*="-gap-9"]{margin-right:75%}
+[class$="-r-9"],[class*="-r-9"]{left:75%}[class$="-l-9"],[class*="-l-9"]{left:-75%}
+[class^="xs-10"],[class*=" xs-10"]{width:83.33%}[class$="-gap-10"],[class*="-gap-10"]{margin-right:83.33%}
+[class$="-r-10"],[class*="-r-10"]{left:83.33%}[class$="-l-10"],[class*="-l-10"]{left:-83.33%}
+[class^="xs-11"],[class*=" xs-11"]{width:91.66%}[class$="-gap-11"],[class*="-gap-11"]{margin-right:91.66%}
+[class$="-r-11"],[class*="-r-11"]{left:91.66%}[class$="-l-11"],[class*="-l-11"]{left:-91.66%}
+[class^="xs-12"],[class*=" xs-12"]{width:100%}[class$="-gap-12"],[class*="-gap-12"]{margin-right:100%}
+[class$="-r-12"],[class*="-r-12"]{left:100%}[class$="-l-12"],[class*="-l-12"]{left:-100%}
+
+[class^="abs-"],[class*=" abs"]{position:absolute}
+[class$="-h12"],[class*="-h12 "]{height:100%}

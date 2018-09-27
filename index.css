@@ -1,0 +1,148 @@
+.unselectable {
+    /* For Opera and <= IE9, we need to add unselectable="on" attribute onto each element */
+    /* Check this site for more details: http://help.dottoro.com/lhwdpnva.php */
+    -moz-user-select: none; /* These user-select properties are inheritable, used to prevent text selection */
+    -webkit-user-select: none;
+    -ms-user-select: none; /* From IE10 only */
+    user-select: none; /* Not valid CSS yet, as of July 2012 */
+
+    -webkit-user-drag: none; /* Prevents dragging of images/divs etc */
+    user-drag: none;
+}
+
+.GanttBox {
+	background: #ccc;
+	overflow: hidden;
+}
+.GanttBoxChart__canvas {
+	background: #333;
+	height: calc(100% - 3em);
+}
+
+.wrap {
+	height:100%;
+}
+body {
+	margin: 0px;
+}
+
+.container {
+	text-align: center;
+}
+
+.GanttBoxMnu {
+	background: #ddd;
+	min-height: 3em;
+}
+[class^="GanttBoxMnu__"],[class*=" GanttBoxMnu__"] {
+	text-align: center;
+	min-width: 1.5em;
+	padding:.25em .25em;
+	margin: .48em .24em;
+	height: 25px;
+	float: left;
+}
+
+[class^="GanttBoxMnu__lbl"],[class*=" GanttBoxMnu__lbl"]{
+	user-select: none;
+}
+[class^="GanttBoxMnu__btn"],[class*=" GanttBoxMnu__btn"]{
+	outline: 1px solid #999;
+	cursor: pointer;
+}
+[class^="GanttBoxMnu__btn"]:hover,[class*=" GanttBoxMnu__btn"]:hover{
+	background: rgba(255,255,255,.5);
+}
+
+[class^="GanttBoxMnu__txt"],[class*=" GanttBoxMnu__txt"]{
+	width: 3em;
+}
+
+[class^="GanttBoxMnu__dte"],[class*=" GanttBoxMnu__dte"]{
+	max-width: 35%;
+}
+[class^="GanttBoxMnu__dte"]:invalid,[class*=" GanttBoxMnu__dte"]:invalid{
+	background: #fcc;
+}
+
+[class^="GanttBoxMnu__lst"],[class*=" GanttBoxMnu__lst"]{
+	height: 36px;
+}
+
+.GanttBoxChart{
+	height:100%;
+}
+[class^="GanttBoxChart__hlp"],[class*=" GanttBoxChart__hlp"]{
+	display: none;
+	pointer-events: none;
+	position: absolute;
+	left:0;
+	top:0;
+	width:2em;
+	height:2em;
+	background: rgba(0,0,0,.25);
+	border-radius: 2px;
+	border: 1px solid #39f;
+}
+.GanttBoxChart .circ{
+	border-radius: 300px;
+}
+.GanttBoxPop{
+/*	display: none;*/
+	position: fixed;
+    top: 0;
+}
+.GanttBoxWrap{
+	display: inline-block;
+	margin: 0 auto;
+	text-align: left;
+	max-width: 45em;
+	background: rgba(255,255,255,.8);
+	outline: 1px solid #39f;
+}
+[class^="GanttBoxPop__grp"].hide,[class*=" GanttBoxPop__grp"].hide{
+	display: none;
+}
+[class^="GanttBoxPop__prop"],[class*=" GanttBoxPop__prop"]{
+	margin-top:1px; 
+}
+.GanttBoxPop__prop_caption{
+	
+}
+.GanttBoxPop__prop_description{
+	border: none;
+    outline: 1px solid #999;
+    outline-offset: -1px;
+	min-height: 1.25em;
+	resize: vertical;
+	height: 5em;
+}
+[class^="GanttBoxPop__lbl_title"],[class*=" GanttBoxPop__lbl_title"]{
+	margin: 1em;
+}
+[class^="GanttBoxPop__btn"],[class*=" GanttBoxPop__btn"]{
+	user-select: none;
+	text-align: center;
+	cursor: default;
+	font: 400 13.3333px Arial;
+	background: linear-gradient(#f7f7f7, #ddd);
+	margin: 1em 0;
+	padding: 1.2em;
+	border: 1px solid #a8a8a8;
+	border-radius: 2px;
+}
+[class^="GanttBoxPop__btn"]:hover,[class*=" GanttBoxPop__btn"]:hover{
+	background: linear-gradient(#fcffa8, #dedea3);
+}
+[class^="GanttBoxPop__btn"]:active,[class*=" GanttBoxPop__btn"]:active{
+	background: linear-gradient(#ddd, #f7f7f7);
+}
+[class^="GanttBoxPop__btn_del"],[class*=" GanttBoxPop__btn_del"]{
+	background: linear-gradient(#fcc, #daa);
+	margin: 1.7em 0;
+	padding: .5em;
+}
+[class^="GanttBoxPop__btn_del"]:hover,[class*=" GanttBoxPop__btn_del"]:hover,
+[class^="GanttBoxPop__btn_del"]:active,[class*=" GanttBoxPop__btn_del"]:active{
+	background: linear-gradient(#f77, #f99);
+}
