@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+	<meta charset="UTF-8">
+	<title>GanttBox</title>
+	<link rel="stylesheet" href="xs.css">
+	<link rel="stylesheet" href="index.css">
+</head>
+<body>
+	<div class="container xs-12 abs-h12">
+		<div class="GanttBox unselectable xs-12-h12">
+			<div class="GanttBoxMnu">
+<!--				<div class='GanttBoxMnu__lbl' data-mul=.5 width=25 height=25>Date:</div>-->
+				<select class="GanttBoxMnu__lst_root xs-">
+					<option value="-nav" selected disabled hidden>☰</option>
+					<option value="-new"><b>Новый</b></option>
+<!--					<option value="-save"><b>Сохранить</b></option>-->
+<!--					<option value="-saveAs"><b>Сохранить как...</b></option>-->
+					<option value="-" disabled>———————</option>
+				</select>
+<!--					this.options[this.selectedIndex].value-->
+<!--					<div class='GanttBoxMnu__lbl_uri' width=25 height=25>/test</div>-->
+<!--					<svg class='GanttBoxMnu__btn_uri' width=25 height=25><path d="M16 15A8 8 0 1 0 15 16M16 17A9 9 0 1 1 17 16L25 23 23 25"/></svg>-->
+				<div class="xs-rev">
+					<svg class='GanttBoxMnu__btn_size' data-mul=1.25 width=25 height=25><path d="M16 15A8 8 0 1 0 15 16M16 17A9 9 0 1 1 17 16L25 23 23 25M6 9h8v2h-8Z"/></svg>
+					<svg class='GanttBoxMnu__btn_size' data-mul=.8 width=25 height=25><path d="M16 15A8 8 0 1 0 15 16M16 17A9 9 0 1 1 17 16L25 23 23 25M6 9h8v2h-8ZM9 6h2v8h-2Z"/></svg>
+				</div>
+				<div class="xs-">
+					<input class="GanttBoxMnu__dte_from" type=date>
+					<input class="GanttBoxMnu__txt_size" data-min=7 data-max=365 type=number value="60">
+					<input class="GanttBoxMnu__dte_to" type=date value="2018-09-20">
+				</div>
+				
+				
+			</div>
+			<div class="GanttBoxChart xs-12">
+				<canvas class="GanttBoxChart__canvas xs-12"></canvas>
+				<div class="GanttBoxChart__hlp_area"></div>
+			</div>
+			<div class="GanttBoxPop xs-12-h12">
+				<div class="GanttBoxWrap">
+					<div class="GanttBoxPop__lbl_title">Debug обзор модельного окна. Раскоментируйте в index.css .GanttBoxPop[style='display:none']</div>
+					<div class="GanttBoxPop__grp_dte xs-12">
+						<div class="GanttBoxPop__lbl_date xs-3-r-1">Новый период:</div>
+						<input class="GanttBoxPop__prop_from xs-r-1" type=date>
+						<input class="GanttBoxPop__prop_to xs-r-1" type=date>
+					</div>
+					<div class="GanttBoxPop__grp_opt hide">
+						<div class=xs-10-r-1><input type=radio name=opt value=parallel checked class="GanttBoxPop__opt_parallel">Добавить параллельной задачей</div>
+						<div class=xs-10-r-1><input type=radio name=opt value=expand class="GanttBoxPop__opt_expand">Раздвинуть имеющийся график</div>
+						<div class=xs-10-r-1><input type=radio name=opt value=insert class="GanttBoxPop__opt_insert">Вписать в свободный промежуток</div>
+					</div>
+					<div class="GanttBoxPop__grp_cap xs-12">
+						<div class="GanttBoxPop__lbl_caption xs-3-r-1">Название:</div>
+						<input class="GanttBoxPop__prop_caption xs-7-r-1" type="text">
+						<div class="GanttBoxPop__lbl_description xs-3-r-1">Описание:</div>
+						<textarea class="GanttBoxPop__prop_description xs-7-r-1"></textarea>
+					</div>
+					<div class="xs-12">
+						<div class="GanttBoxPop__btn_ok xs-2-r-1">OK</div>
+						<div class="GanttBoxPop__btn_cancel xs-2-r-2">Cancel</div>
+						<div class="GanttBoxPop__grp_del">
+							<div class="GanttBoxPop__btn_del xs-2-r-3">DELETE</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src=xdb.js></script>
+	<script src=ucx.js></script>
+	<script src=popup.js></script>
+	<script src=chart.js></script>
+	<script src=even3_0.7.2.js></script>
+	<script src=admin.js></script>
+</body>
+</html>
